@@ -54,6 +54,13 @@
         height: 55px
         font-size: 16px
         margin-top: 5px
+    &__mini
+        width: 131px
+        height: 40px
+        font-size: 14px
+
+
+
 
 
 .promo
@@ -201,6 +208,195 @@
         transform: translateY(-50%)
         left: auto
         right: -66px
+
+.catalog
+    padding-bottom: 93px
+    .container
+        width: 945px
+        margin: 0 auto
+    &__title
+        color: #0d0d0d
+        font-size: 30px
+        font-weight: 700
+        text-transform: uppercase
+        text-align: center
+    &__tabs
+        display: flex
+        justify-content: space-between
+        width: 640px
+        margin: 69px auto 0 auto
+        .catalog__tab
+            width: 220px
+            height: 50px
+            border: 2px solid #d0d0d0
+            color: #6b6b6b
+            font-size: 18px
+            font-weight: 500
+            text-transform: uppercase
+            text-align: center
+            line-height: 48px
+            margin: 0 5px
+            transform: skewX(-25deg)
+            cursor: pointer
+            transition: 0.5s all
+            &:hover
+                box-shadow: 3px 2px 10px blue
+                border: none
+            span
+                display: block
+                transform: skewX(25deg)
+            &_active
+                background-color: $maincolor
+                color: #ffffff
+
+    &__items
+        margin-top: 39px
+        display: none
+        flex-wrap: wrap
+        justify-content: space-between
+    .catalog__content_active
+        display: flex    
+
+        .catalog__item
+            width: 300px
+            border: 2px solid #e8e8e8
+            padding: 20px 20px 26px 20px
+            overflow: hidden
+            margin-top: 20px
+            
+            &__wrapper
+                width: calc( 200% + 40px )
+                display: flex
+                transition: 10s all
+            &__content
+                width: 50%
+                margin-right: 20px
+                transform: translateX(-107%)
+                transition: 5s all
+                &__active
+                    transform: translateX(0%)
+
+            &__list
+                width: 50%
+                padding: 0 22px 0 17px
+                color: #555555
+                font-size: 14px
+                font-weight: 300
+                transform: translateX(0%)
+                transition: 5s all
+                &__active
+                    transform: translateX(-100%)
+                ul
+                    padding-left: 0
+                    margin-bottom: 0
+                    list-style: none
+                    position: relative
+                    li
+                        margin-bottom: 10px
+                        position: relative
+                        &:before
+                            content: ''
+                            background-color: $maincolor   
+                            width: 5px
+                            height: 5px
+                            position: absolute
+                            left: -14px
+                            top: 9px
+                .catalog__item__back
+                    position: absolute
+                    right: 50%
+                    bottom: 19px
+            img
+                display: block
+                max-width: 100%
+                height: 200px
+                margin: 0 auto
+            &__subtitle
+                margin-top: 20px
+                color: #0d0d0d
+                font-size: 16px
+                font-weight: 700
+                text-align: center
+            &__desc
+                margin-top: 20px
+                color: #0d0d0d
+                font-size: 14px
+                font-weight: 300
+                text-align: center
+                line-height: 1
+            a
+                display: block
+                color: $maincolor
+                font-size: 14px
+                font-weight: 700
+                text-decoration: underline
+                text-align: center
+
+            &__link
+                width: 80%
+                margin: 18px auto 0 auto
+            hr
+                border-bottom: none
+                margin: 19px 0 21px 0
+            
+            &__footer
+                display: flex
+                justify-content: space-between
+                .catalog__item__price
+                    .old__price
+                        color: #555555
+                        font-size: 14px
+                        font-weight: 300
+                        text-decoration: line-through
+                    .actual__price
+                        color: #050505
+                        font-size: 20px
+                        font-weight: 700
+
+.review
+    min-height: 1050px
+    .container
+        width: 945px
+        margin: 0 auto
+    &__title
+        color: #0d0d0d
+        font-size: 30px
+        font-weight: 700
+        text-transform: uppercase
+        text-align: center
+    &__item
+        margin-top: 70px
+        display: flex
+        &__img
+            width: 169px
+            height: 169px
+            margin-right: 62px
+        &__desc__wrapper
+            color: #0d0d0d
+            font-size: 16px
+            font-weight: 300
+            span
+                color: #646464
+                font-size: 14px
+                margin-top: 10px
+        &__desc__subtitle
+            font-size: 18px
+            font-weight: 700
+        &__description
+            margin-top: 19px
+            width: 650px
+        
+            
+
+
+                
+
+
+
+                
+
+
+
 
                 
 
