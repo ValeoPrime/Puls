@@ -25,3 +25,52 @@ $(document).ready(function(){
     toggleSlide('.catalog__item__back');
   });
 
+const coll = document.querySelector(".button__coll");
+const main = document.querySelector(".button__main");
+const bay = document.querySelectorAll(".button__mini");
+const popup = document.querySelector(".modal__consultation");
+const baypopup = document.querySelector(".modal__bay");
+const overlay = document.querySelector(".overlay");
+const close = overlay.querySelectorAll(".modal__close");
+const closeAll = document.querySelector(".overlay");
+
+bay.forEach(function(item) {
+    item.addEventListener("click", function (evt) {
+          evt.preventDefault();
+          overlay.classList.add("overlay__show");
+          popup.classList.add("modal__show");
+    })
+});
+
+coll.addEventListener("click", function (evt) {
+  evt.preventDefault();
+  overlay.classList.add("overlay__show");
+  popup.classList.add("modal__show");
+});
+
+main.addEventListener("click", function (evt) {
+    evt.preventDefault();
+    overlay.classList.add("overlay__show");
+    popup.classList.add("modal__show");
+  });
+
+
+close.forEach(function(item) {
+    item.addEventListener("click", function (evt) {
+        evt.preventDefault();
+          overlay.classList.remove("overlay__show");
+          popup.classList.remove("modal__show");
+          baypopup.classList.remove("modal__show");
+    })
+});
+
+closeAll.addEventListener("click", function (evt) { //закрывает попапп при клике на пустое место
+    evt.preventDefault();
+        overlay.classList.remove("overlay__show");
+        popup.classList.remove("modal__show");
+        baypopup.classList.remove("modal__show");
+  });
+
+
+
+

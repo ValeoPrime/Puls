@@ -414,6 +414,52 @@
         width: 210px
         display: flex
         justify-content: space-between
+
+.overlay
+    position: fixed
+    width: 100%
+    height: 100%
+    top: 0
+    background-color: rgba(0, 0, 0, .56)
+    .modal
+        width: 380px
+        min-height: 400px
+        background-color: #f2f2f2
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        padding: 40px 36px
+        color: #0d0d0d
+        text-align: center
+        &__close
+            width: 21px
+            height: 21px
+            background: url(../img/icons/kross.png) center center/cover no-repeat
+            position: absolute
+            top: 0
+            right: -41px
+            cursor: pointer
+            border: none
+        &__form
+            margin-top: 25px
+        &__subtitle
+            font-size: 19px
+            font-weight: 700
+        &__desc
+            font-size: 14px
+            font-weight: 500
+
+.overlay, 
+.modal__consultation,
+.modal__bay
+    display: none
+
+.overlay__show, .modal__show
+    display: block
+
+
+
    
         
             
