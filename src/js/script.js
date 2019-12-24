@@ -24,6 +24,7 @@ $(document).ready(function(){
     toggleSlide('.catalog__item__link');
     toggleSlide('.catalog__item__back');
     
+    //Попапы
     const coll = document.querySelector(".button__coll");
     const main = document.querySelector(".button__main");
     const bay = document.querySelectorAll(".button__mini");
@@ -62,6 +63,7 @@ $(document).ready(function(){
         })
     });
 
+    // Валидация форм
     function valideForm(form){
       $(form).validate({
         rules: {
@@ -92,9 +94,26 @@ $(document).ready(function(){
 
     valideForm(consultation__form);
     valideForm(order);
-    valideForm(consultation);
+    valideForm(consultation__form2);
 
     $('input[type=tel]').mask("+375(999) 999-9999"); //маска для телефона в форме
+
+    //Отправка почты с сайта
+    $('form').submit(function(e) { // берем все теги форм
+      e.preventDefault();
+      $.ajax({
+          type: "POST",
+          url: "mailer/smart.php", // отправляем обрабатываться на файл меллер
+          data: $(this).serialize()
+      }).done(function() {
+          $(this).find("input").val(""); //если отправка прошла сбрасываем значения инпутов
+          $('#consultation, #order').fadeOut(); //убираем форму
+          $('.overlay, #thanks').fadeIn('slow'); //выводим благодарность
+
+          $('form').trigger('reset');
+      });
+      return false;
+  });
   });
 
 
