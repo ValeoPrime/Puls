@@ -23,53 +23,81 @@ $(document).ready(function(){
 
     toggleSlide('.catalog__item__link');
     toggleSlide('.catalog__item__back');
-  });
+    
+    const coll = document.querySelector(".button__coll");
+    const main = document.querySelector(".button__main");
+    const bay = document.querySelectorAll(".button__mini");
+    const popup = document.querySelector(".modal__consultation");
+    const baypopup = document.querySelector(".modal__bay");
+    const overlay = document.querySelector(".overlay");
+    const close = overlay.querySelectorAll(".modal__close");
 
-const coll = document.querySelector(".button__coll");
-const main = document.querySelector(".button__main");
-const bay = document.querySelectorAll(".button__mini");
-const popup = document.querySelector(".modal__consultation");
-const baypopup = document.querySelector(".modal__bay");
-const overlay = document.querySelector(".overlay");
-const close = overlay.querySelectorAll(".modal__close");
-const closeAll = document.querySelector(".overlay");
+    bay.forEach(function(item) {
+        item.addEventListener("click", function (evt) {
+              evt.preventDefault();
+              overlay.classList.add("overlay__show");
+              baypopup.classList.add("modal__show");
+        })
+    });
 
-bay.forEach(function(item) {
-    item.addEventListener("click", function (evt) {
-          evt.preventDefault();
-          overlay.classList.add("overlay__show");
-          popup.classList.add("modal__show");
-    })
-});
+    coll.addEventListener("click", function (evt) {
+      evt.preventDefault();
+      overlay.classList.add("overlay__show");
+      popup.classList.add("modal__show");
+    });
 
-coll.addEventListener("click", function (evt) {
-  evt.preventDefault();
-  overlay.classList.add("overlay__show");
-  popup.classList.add("modal__show");
-});
-
-main.addEventListener("click", function (evt) {
-    evt.preventDefault();
-    overlay.classList.add("overlay__show");
-    popup.classList.add("modal__show");
-  });
-
-
-close.forEach(function(item) {
-    item.addEventListener("click", function (evt) {
+    main.addEventListener("click", function (evt) {
         evt.preventDefault();
-          overlay.classList.remove("overlay__show");
-          popup.classList.remove("modal__show");
-          baypopup.classList.remove("modal__show");
-    })
-});
+        overlay.classList.add("overlay__show");
+        popup.classList.add("modal__show");
+      });
 
-closeAll.addEventListener("click", function (evt) { //закрывает попапп при клике на пустое место
-    evt.preventDefault();
-        overlay.classList.remove("overlay__show");
-        popup.classList.remove("modal__show");
-        baypopup.classList.remove("modal__show");
+
+    close.forEach(function(item) {
+        item.addEventListener("click", function (evt) {
+            evt.preventDefault();
+              overlay.classList.remove("overlay__show");
+              popup.classList.remove("modal__show");
+              baypopup.classList.remove("modal__show");
+        })
+    });
+
+    function valideForm(form){
+      $(form).validate({
+        rules: {
+          name: {
+            required: true,
+            minlength: 3
+          }, 
+          tel: "required",
+          email: {
+            required: true,
+            email: true
+          }
+        },
+        messages: {
+          name: {
+            required: "Заполни ник",
+            minlength: jQuery.validator.format("Не менее чем из {0} символов!")
+          },
+          tel: {
+            required: "Оставь телефончик",
+          },
+          email: {
+            required: "и почту, мы тебя найдем:)",
+          }
+        }
+      });
+    }
+
+    valideForm(consultation__form);
+    valideForm(order);
+    valideForm(consultation);
+
+    $('input[type=tel]').mask("+375(999) 999-9999"); //маска для телефона в форме
   });
+
+
 
 
 
