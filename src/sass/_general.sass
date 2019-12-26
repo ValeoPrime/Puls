@@ -1,5 +1,8 @@
 *
     box-sizing: border-box
+body
+    position: relative
+
 .promo
     background: url("../img/bg/woman_bg.jpg") center center/cover no-repeat
     min-height: 650px
@@ -132,6 +135,13 @@
             a
                 color: #ff0000
                 text-decoration: underline
+            .animated
+                animation-name: puls
+                animation-duration: 2s
+                animation-iteration-count: infinite
+            .rotation
+                animation: rotation 2s infinite
+            
         .adv__subheader
             font-size: 18px
             font-weight: 700
@@ -469,6 +479,19 @@
 
 .overlay__show, .modal__show
     display: block
+
+.pageup
+    display: none
+    position: fixed
+    left: 30px
+    bottom: 50px
+    z-index: 100
+    border: 1px solid black
+    border-radius: 5px 
+    height: 32px
+    width: 32px
+    img
+        width: 100%
 
 
 

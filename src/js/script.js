@@ -113,7 +113,23 @@ $(document).ready(function(){
           $('form').trigger('reset');
       });
       return false;
-  });
+    });
+
+    $(window).scroll(function(){  //Смотрим событие срол во всем окне браузера
+      if($(this).scrollTop() > 1000 ){ // если пользовател отскролил сверху более 1 к пикселей
+        $('.pageup').fadeIn();  // блок с классом пэйджап вылезает
+      } else {
+        $('.pageup').fadeOut(); // если нет то прячется
+      }
+    });
+
+    $("a[href^='#']").click(function(){
+      var _href = $(this).attr("href");
+      $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+      return false;
+
+      
+});
   });
 
 
